@@ -10,6 +10,8 @@ var config = {
       , caps: [
           { browserName: "firefox", version: "14", platform: "linux", proxy: { proxyType: "direct" } }
         //, { browserName: "chrome", version: "", platform: "VISTA", proxy: { proxyType: "direct" } }
+        //, {browserName: "ipad", version: '', platform: "Mac 10.6", deviceOrientation: "landscape", proxy: {proxyType: 'direct'}}
+        //, {browserName: "android", version: '4', platform: "linux", deviceType: "tablet", proxy: {proxyType: 'direct'}}
       ]
     };
 

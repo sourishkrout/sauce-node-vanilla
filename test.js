@@ -3,12 +3,12 @@ var wd = require("wd")
   , _ = require("underscore")._;
 
 var config = {
-        host: "ondemand.saucelabs.com"
-      , port: 80
-      , username: process.env.SAUCE_USERNAME
-      , accessKey: process.env.SAUCE_ACCESS_KEY
+        host: "ondemand.saucelabs.com" // change to localhost for local selenium server set up
+      , port: 80 // change to 4444 for local selenium server set up
+      , username: process.env.SAUCE_USERNAME // you can replace this with your sauce username (not require for local selenium server)
+      , accessKey: process.env.SAUCE_ACCESS_KEY // you can replace this with your sauce access key (not require for local selenium server)
       , caps: [
-        { browserName: "firefox", version: "14", platform: "", proxy: { proxyType: "direct" } }
+        { browserName: "firefox", version: "14", platform: "", proxy: { proxyType: "direct" } } // if firefox is not working try blank version number
         //, { browserName: "chrome", version: "", platform: "VISTA", proxy: { proxyType: "direct" } }
         //  {browserName: "ipad", version: '', platform: "Mac 10.6", deviceOrientation: "landscape", proxy: {proxyType: 'direct'}}
       ]
@@ -17,6 +17,7 @@ var config = {
 (function() {
   var wdi = wd.remote(config.host, config.port, config.username, config.accessKey);
 
+  // Will be called once per browser by the loop far below
   var test = function(driver, cap, callback) {
     cap.name = "I am a large guinea pig using a " + cap.browserName;
     driver.init(cap, function() {
@@ -28,6 +29,7 @@ var config = {
     });
   };
 
+  // Test script to fill out and post form
   var post = function(driver, callback) {
     var TITLE = "Guinea pigs are fun";
     driver.get("http://tutorialapp.saucelabs.com/idea_add", function() {
@@ -56,6 +58,7 @@ var config = {
     });
   };
 
+  // Test script to login to test web application
   var login = function(driver, callback) {
     driver.get("http://tutorialapp.saucelabs.com/", function() {
       driver.elementByName("login", function(err, _login) {

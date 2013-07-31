@@ -3,14 +3,15 @@ var wd = require("wd")
   , _ = require("underscore")._;
 
 var config = {
-        host: "ondemand.saucelabs.com" // change to localhost for local selenium server set up
-      , port: 80 // change to 4444 for local selenium server set up
-      , username: process.env.SAUCE_USERNAME // you can replace this with your sauce username (not require for local selenium server)
-      , accessKey: process.env.SAUCE_ACCESS_KEY // you can replace this with your sauce access key (not require for local selenium server)
+        host: "sebastian.dev.saucelabs.com" // change to localhost for local selenium server set up
+      , port: 4444 // change to 4444 for local selenium server set up
+      , build: "This_is_my_build"
+      , username: "admin" // you can replace this with your sauce username (not require for local selenium server)
+      , accessKey: "0e779f56-385a-41be-a562-6f6908bf5acf" // you can replace this with your sauce access key (not require for local selenium server)
       , caps: [
-        { browserName: "firefox", version: "14", platform: "", proxy: { proxyType: "direct" } } // if firefox is not working try blank version number
-        //, { browserName: "chrome", version: "", platform: "VISTA", proxy: { proxyType: "direct" } }
-        //  {browserName: "ipad", version: '', platform: "Mac 10.6", deviceOrientation: "landscape", proxy: {proxyType: 'direct'}}
+        { browserName: "safari", version: "5", platform: "OS X 10.6", proxy: { proxyType: "direct" } } // if firefox is not working try blank version number
+        // , { browserName: "chrome", version: "", platform: "VISTA", proxy: { proxyType: "direct" } }
+        // , {browserName: "ipad", version: '', platform: "Mac 10.6", deviceOrientation: "landscape", proxy: {proxyType: 'direct'}}
       ]
     };
 
